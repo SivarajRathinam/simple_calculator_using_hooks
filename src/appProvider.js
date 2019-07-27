@@ -26,15 +26,20 @@ const AppProvider=(props)=>{
 		return ""
 	}
 	const isValidOperation = (input)=>{
-		if ((Symbols.indexOf(input)!=-1) && (Symbols.indexOf(state.inputValue[state.inputValue.length-1]) !=-1))
+		if ((Symbols.indexOf(input)!=-1) && (Symbols.indexOf(state.inputValue[state.inputValue.length-1]) !=-1)) 
+			//this will blocking user from adding multiple operators continously
 			return false
 		if(state.inputValue == "" && input == ".")
+			//this will blocking user from adding decimal point without any numbers
 			return false
 		if(getLastValue(state.inputValue).indexOf(".") != -1 && input == ".")
+			//this will blocking user from adding multiple decimal point continously
 			return false
 		if(state.inputValue != 0 && Symbols.indexOf(state.inputValue[state.inputValue.length-1])!=-1 && input ==".")
+			//this will blocking user from adding decimal point with opeator at the end of displayed value
 			return false
 		if(state.inputValue[state.inputValue.length-1] =="." && Symbols.indexOf(input) != -1)
+			//this will blocking user from adding decimal point and opeator 
 			return false
 		return true
 	}
