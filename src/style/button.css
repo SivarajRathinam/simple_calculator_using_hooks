@@ -1,0 +1,7 @@
+.keypad .mdl-button{
+	width:100%;
+	text-align: center;
+}
+.keypad .mdl-cell{
+	border:1px solid #e2e2e2cf;
+}
