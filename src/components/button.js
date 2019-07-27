@@ -1,8 +1,10 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import {Button} from 'react-mdl';
+import MainContext from './mainContext'
 
 const ButtonComp=(props)=>{
-	return <Button ripple onClick={()=>console.log(props.value)} disabled={props.isDisabled?true:false}> {props.value} </Button>
+	const {addToInputValue} = useContext(MainContext)
+	return <Button ripple onClick={()=>addToInputValue(props.value)} disabled={props.isDisabled?true:false}> {props.value} </Button>
 }
 
 export default ButtonComp;

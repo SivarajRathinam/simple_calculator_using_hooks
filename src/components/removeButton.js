@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import {Icon,Button} from 'react-mdl';
-
+import MainContext from './mainContext';
 const RemoveButton = (props)=>{
-	return <Button ripple onClick={()=>{console.log('remove button clicked')}}><Icon name="backspace"/></Button>
+	const {removeFromInputValue} = useContext(MainContext) 
+	return <Button ripple onClick={()=>{removeFromInputValue()}}><Icon name="backspace"/></Button>
 }
 
 export default RemoveButton;

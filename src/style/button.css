@@ -5,3 +5,7 @@
 .keypad .mdl-cell{
 	border:1px solid #e2e2e2cf;
 }
+.calc-display{
+	text-align: right!important;
+	color:black !important;
+}
