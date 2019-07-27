@@ -1,5 +1,5 @@
 import React from 'react';
-import {ADD_TO_INPUT,REMOVE_FROM_INPUT,DO_CALCULATION} from './constant'
+import {ADD_TO_INPUT,REMOVE_FROM_INPUT,DO_CALCULATION,RESET} from './constant'
 
 export const InitialState = {
 	"total":"0",
@@ -17,6 +17,8 @@ const Reducer = (state=InitialState,action)=>{
 		case DO_CALCULATION:
 			var total = eval(state.inputValue)
 			return {...state,total}
+		case RESET:
+			return InitialState;
 		default:
 			return state;
 	}

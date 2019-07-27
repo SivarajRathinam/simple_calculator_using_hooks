@@ -1,7 +1,7 @@
 import React, {useReducer}from 'react';
 import MainContext from './components/mainContext';
 import Reducer,{InitialState} from './reducer/reducer';
-import {ADD_TO_INPUT,REMOVE_FROM_INPUT,DO_CALCULATION} from './reducer/constant';
+import {ADD_TO_INPUT,REMOVE_FROM_INPUT,DO_CALCULATION,RESET} from './reducer/constant';
 
 const AppProvider=(props)=>{
 	const [state,dispatch] = useReducer(Reducer,InitialState)
@@ -14,10 +14,14 @@ const AppProvider=(props)=>{
 	const doCalc = ()=>{
 		dispatch({"type":DO_CALCULATION})
 	}
+	const resetValue = ()=>{
+		dispatch({"type":RESET})
+	}
 	return <MainContext.Provider value={{
 			addToInputValue,
 			removeFromInputValue,
 			doCalc,
+			resetValue,
 			state
 			}}>
 				{props.children}

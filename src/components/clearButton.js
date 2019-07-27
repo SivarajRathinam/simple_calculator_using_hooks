@@ -1,8 +1,10 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import {Icon,Button} from 'react-mdl';
+import MainContext from './mainContext';
 
 const ClearComp=(props)=>{
-	return <Button ripple onClick={()=>{console.log('clear Button')}}>C</Button>
+	const {resetValue} = useContext(MainContext);
+	return <Button ripple onClick={()=>{resetValue()}}>C</Button>
 }
 
 export default ClearComp;
