@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 	webpack = require("webpack")
-	path = require("path");
+	path = require("path"),
+	UglifyEsPlugin = require('uglify-es-webpack-plugin');
 
 let config = {
 	context:__dirname,
@@ -29,11 +30,23 @@ let config = {
 		})
 	]
 }
+
 if(process.env.NODE_ENV !== 'production'){
 	config['devServer'] = {
 		progress:true,
 		historyApiFallback:true
 	}
+}else{
+	config["plugins"].push(
+		new webpack.optimize.MinChunkSizePlugin({
+			minChunkSize: 10000 // Minimum number of characters
+		}))
+	config["plugins"].push(
+		new UglifyEsPlugin({
+                compress:{
+                    drop_console: true
+                }
+            }))
 }
 
 module.exports = config
